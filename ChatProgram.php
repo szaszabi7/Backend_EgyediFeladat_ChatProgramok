@@ -88,7 +88,14 @@
                              ':availableForAndroid' => $chatAvailableForAndroid, ':ratingOnGooglePlay' => $chatRatingOnGooglePlay,
                              ':ratingOnGooglePlay' => $chatRatingOnGooglePlay, ':availableForiOS' => $chatAvailableForiOS,
                              ':ratingOnAppStore' => $chatRatingOnAppStore, ':id' => $chatId]);
-         }
+        }
+        
+        public static function chatDelete(int $id) {
+            global $db;
+
+                $db->prepare('DELETE FROM adatok WHERE id = :id')
+                ->execute([':id' => $id]);
+        } 
     }
 
 ?>

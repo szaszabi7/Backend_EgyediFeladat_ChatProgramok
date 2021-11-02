@@ -5,6 +5,15 @@ require_once 'ChatProgram.php';
 
 $chatAdatok = ChatProgram::osszes();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+    $deleteId = $_POST['deleteId'] ?? '';
+
+  if ($deleteId !== '') {
+    ChatProgram::chatDelete($deleteId);
+    header('Location: index.php');
+  }
+}
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +40,10 @@ $chatAdatok = ChatProgram::osszes();
             echo "<p>Available For iOS: " . $chat -> getAvailableForiOS() . "</p>";
             echo "<p>Rating On App Store: " . $chat -> getRatingOnAppStore() . "</p>";
             echo "<a href='editChatProgram.php?id=" . $chat -> getId() . "'>Szerkesztés</a>";
+            echo "<form method='POST'>";
+            echo "<input type='hidden' name='deleteId' value='" . $chat -> getId() . "'>";
+            echo "<button type='submit'>Törlés</button>";
+            echo "</form>";
             echo "</div>";
             echo "</div>";
             }
