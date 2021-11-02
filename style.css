@@ -22,7 +22,7 @@ a:hover {
     color: rgb(255, 38, 0);
 }
 
-#editGomb {
+#editGomb, .deleteGomb , #addGomb{
     background-color: tomato;
     color: white;
     border: tomato 3px solid;

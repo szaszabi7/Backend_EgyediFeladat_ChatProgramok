@@ -42,12 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<a href='editChatProgram.php?id=" . $chat -> getId() . "'>Szerkesztés</a>";
             echo "<form method='POST'>";
             echo "<input type='hidden' name='deleteId' value='" . $chat -> getId() . "'>";
-            echo "<button type='submit'>Törlés</button>";
+            echo "<button class='deleteGomb' type='submit'>Delete</button>";
             echo "</form>";
             echo "</div>";
             echo "</div>";
             }
         ?>
+    </div>
+    <div class="container">
+        <a  href="addChatProgram.php">Add New Chat Programs</a>
     </div>
 </body>
 </html>

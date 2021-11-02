@@ -95,7 +95,23 @@
 
                 $db->prepare('DELETE FROM adatok WHERE id = :id')
                 ->execute([':id' => $id]);
-        } 
+        }
+
+        public function chatAdd() {
+            global $db;
+
+            $db->prepare('INSERT INTO adatok (name, launchDate, numberOfUsers, availableForAndroid, ratingOnGooglePlay, availableForiOS, ratingOnAppStore) 
+                                    VALUES (:name, :launchDate, :numberOfUsers, :availableForAndroid, :ratingOnGooglePlay, :availableForiOS, :ratingOnAppStore)')
+                ->execute([':name' => $this -> name, 
+                            ':launchDate' => $this -> launchDate, 
+                            ':numberOfUsers' => $this -> numberOfUsers,
+                            ':availableForAndroid' => $this -> availableForAndroid, 
+                            ':ratingOnGooglePlay' => $this -> ratingOnGooglePlay,
+                            ':availableForiOS' => $this -> availableForiOS,
+                            ':ratingOnAppStore' => $this -> ratingOnAppStore]);
+
+                // INSERT INTO `adatok` (`id`, `name`, `launchDate`, `numberOfUsers`, `availableForAndroid`, `ratingOnGooglePlay`, `availableForiOS`, `ratingOnAppStore`) VALUES (NULL, 'asd', '2021-11-03', '12312', 'No', '0', 'Yes', '1233');
+        }
     }
 
 ?>
