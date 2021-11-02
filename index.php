@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php 
+
+require_once 'db.php';
+require_once 'ChatProgram.php';
+
+$chatAdatok = ChatProgram::osszes();
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +18,23 @@
     <title>Chat Programok</title>
 </head>
 <body>
-    
+    <div class="container">
+        <?php 
+            foreach ($chatAdatok as $chat) {
+            echo "<div class='adatok'>";
+            echo "<div class='content'>";
+            echo "<h3>" . $chat -> getName() . "</h3>";
+            echo "<p>Launch Date: " . $chat -> getLaunchDate() . "</p>";
+            echo "<p>Number Of Users in 2021: " . $chat -> getNumberOfUsers() . "</p>";
+            echo "<p>Available For Android: " . $chat -> getAvailableForAndroid() . "</p>";
+            echo "<p>Rating On Google Play: " . $chat -> getRatingOnGooglePlay() . "</p>";
+            echo "<p>Available For iOS: " . $chat -> getAvailableForiOS() . "</p>";
+            echo "<p>Rating On App Store: " . $chat -> getRatingOnAppStore() . "</p>";
+            echo "<a href='editChatProgram.php?id=" . $chat -> getId() . "'>Szerkesztés</a>";
+            echo "</div>";
+            echo "</div>";
+            }
+        ?>
+    </div>
 </body>
 </html>

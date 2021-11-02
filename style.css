@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.adatok {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+body {
+    background-color: rgb(70, 65, 65);
+    color: white;
+}
+
+a {
+    color: tomato;
+}
+
+a:hover {
+    color: rgb(255, 38, 0);
+}
+
+#editGomb {
+    background-color: tomato;
+    color: white;
+    border: tomato 3px solid;
+}
+
+
+input {
+    margin-top: 1em;
+}
+
+.content {
+    margin-top: 2em;
+}
