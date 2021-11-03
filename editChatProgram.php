@@ -19,6 +19,7 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+        
         ChatProgram::chatUpadte($chatName, $chatLaunchDate, $chatNumberOfUsers, $chatAvailableForAndroid,
         $chatRatingOnGooglePlay, $chatAvailableForiOS, $chatRatingOnAppStore, $chatId);
         header('Location: index.php');
@@ -37,6 +38,7 @@
 </head>
 <body>
     <div class="container">
+        <h1>Szerkesztés</h1>
         <form method="post">
             <div>
                 Name: <input type="text" name="name" placeholder="Name">

@@ -4,6 +4,11 @@ h1 {
     margin-bottom: 1em;
 }
 
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
 .adatok {
     display: inline-block;
     margin-right: 1em;
@@ -15,19 +20,29 @@ body {
 }
 
 a {
-    color: tomato;
+    color: white;
+    text-decoration: none;
 }
 
 a:hover {
-    color: rgb(255, 38, 0);
+    color: rgb(219, 219, 219);
+    text-decoration: none;
 }
 
-#editGomb, .deleteGomb , #addGomb{
+#chatLink {
+    margin-top: 2em;
+}
+
+button:hover {
+    color: rgb(219, 219, 219);
+}
+
+button, #editGomb {
     background-color: tomato;
     color: white;
     border: tomato 3px solid;
+    border-radius: 7px;
 }
-
 
 input {
     margin-top: 1em;
@@ -35,4 +50,7 @@ input {
 
 .content {
     margin-top: 2em;
+    border: solid tomato 2px;
+    border-radius: 10px;
+    padding: 0.5em;
 }

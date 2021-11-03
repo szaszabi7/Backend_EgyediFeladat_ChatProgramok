@@ -27,30 +27,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Chat Programok</title>
 </head>
 <body>
+    <h1>Chatprogramok</h1>
     <div class="container">
         <?php 
             foreach ($chatAdatok as $chat) {
             echo "<div class='adatok'>";
-            echo "<div class='content'>";
-            echo "<h3>" . $chat -> getName() . "</h3>";
-            echo "<p>Launch Date: " . $chat -> getLaunchDate() ->format('Y-m-d') . "</p>";
-            echo "<p>Number Of Users in 2021: " . $chat -> getNumberOfUsers() . "</p>";
-            echo "<p>Available For Android: " . $chat -> getAvailableForAndroid() . "</p>";
-            echo "<p>Rating On Google Play: " . $chat -> getRatingOnGooglePlay() . "</p>";
-            echo "<p>Available For iOS: " . $chat -> getAvailableForiOS() . "</p>";
-            echo "<p>Rating On App Store: " . $chat -> getRatingOnAppStore() . "</p>";
-            echo "<a href='editChatProgram.php?id=" . $chat -> getId() . "'>Szerkesztés</a>";
-            echo "<form method='POST'>";
-            echo "<input type='hidden' name='deleteId' value='" . $chat -> getId() . "'>";
-            echo "<button class='deleteGomb' type='submit'>Delete</button>";
-            echo "</form>";
-            echo "</div>";
+                echo "<div class='content'>";
+                    echo "<h3>" . $chat -> getName() . "</h3>";
+                    echo "<table>";
+                        echo "<p>Launch Date: " . $chat -> getLaunchDate() ->format('Y-m-d') . "</p>";
+                        echo "<p>Number Of Users in 2021: " . $chat -> getNumberOfUsers() . "</p>";
+                        echo "<p>Available For Android: " . $chat -> getAvailableForAndroid() . "</p>";
+                        echo "<p>Rating On Google Play: " . $chat -> getRatingOnGooglePlay() . "</p>";
+                        echo "<p>Available For iOS: " . $chat -> getAvailableForiOS() . "</p>";
+                        echo "<p>Rating On App Store: " . $chat -> getRatingOnAppStore() . "</p>";
+                        echo "<div>";
+                            echo "<div style='display: inline-block'>";
+                                echo "<button><a href='editChatProgram.php?id=" . $chat -> getId() . "'>Szerkesztés</a></button>";
+                                //echo "<a href='editChatProgram.php?id=" . $chat -> getId() . "'>Szerkesztés</a>";
+                            echo "</div>";
+                            echo "<div style='display: inline-block; margin-left: 0.2em'>";
+                                echo "<form method='POST'>";
+                                echo "<input type='hidden' name='deleteId' value='" . $chat -> getId() . "'>";
+                                echo "<button type='submit'>Delete</button>";
+                            echo "</div>";
+                        echo "</div>";
+                        echo "</form>";
+                    echo "</table>";
+                echo "</div>";
             echo "</div>";
             }
         ?>
     </div>
-    <div class="container">
-        <a  href="addChatProgram.php">Add New Chat Programs</a>
+    <div class="container" id="chatLink">
+        <button>
+            <a href="addChatProgram.php">Add New Chat Programs</a>
+        </button>
     </div>
 </body>
 </html>
