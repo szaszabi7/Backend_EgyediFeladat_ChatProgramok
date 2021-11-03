@@ -31,13 +31,14 @@ a:hover {
 
 #chatLink {
     margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 button:hover {
     color: rgb(219, 219, 219);
 }
 
-button, #editGomb {
+button, #editGomb, #addGomb {
     background-color: tomato;
     color: white;
     border: tomato 3px solid;
@@ -53,4 +54,20 @@ input {
     border: solid tomato 2px;
     border-radius: 10px;
     padding: 0.5em;
+}
+
+.errormessage {
+    color: rgb(255, 30, 0);
+    display: inline-block;
+}
+
+select {
+    margin-top: 1em;
+}
+
+span {
+    font-weight: bold;
+    color: tomato;
+    float: right;
+    margin-left: 1em;
 }
