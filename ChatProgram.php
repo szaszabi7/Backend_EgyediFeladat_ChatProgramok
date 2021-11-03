@@ -10,7 +10,7 @@
         private $availableForiOS;
         private $ratingOnAppStore;
 
-        public function __construct(string $name, string $launchDate,
+        public function __construct(string $name, DateTime $launchDate,
          int $numberOfUsers, string $availableForAndroid, float $ratingOnGooglePlay, 
          string $availableForiOS, float $ratingOnAppStore)
         {
@@ -31,7 +31,7 @@
             return $this -> name;
         }
 
-        public function getLaunchDate() : string {
+        public function getLaunchDate() : DateTime {
             return $this -> launchDate;
         }
 
@@ -64,7 +64,7 @@
                 $eredmeny = [];
                 
                 foreach ($t as $elem) {
-                    $chatAdatok = new ChatProgram($elem['name'], $elem['launchDate'],
+                    $chatAdatok = new ChatProgram($elem['name'], new DateTime($elem['launchDate']),
                                                     $elem['numberOfUsers'], $elem['availableForAndroid'], 
                                                     $elem['ratingOnGooglePlay'], $elem['availableForiOS'],
                                                     $elem['ratingOnAppStore']);
@@ -109,8 +109,6 @@
                             ':ratingOnGooglePlay' => $this -> ratingOnGooglePlay,
                             ':availableForiOS' => $this -> availableForiOS,
                             ':ratingOnAppStore' => $this -> ratingOnAppStore]);
-
-                // INSERT INTO `adatok` (`id`, `name`, `launchDate`, `numberOfUsers`, `availableForAndroid`, `ratingOnGooglePlay`, `availableForiOS`, `ratingOnAppStore`) VALUES (NULL, 'asd', '2021-11-03', '12312', 'No', '0', 'Yes', '1233');
         }
     }
 

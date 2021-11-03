@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<div class='adatok'>";
             echo "<div class='content'>";
             echo "<h3>" . $chat -> getName() . "</h3>";
-            echo "<p>Launch Date: " . $chat -> getLaunchDate() . "</p>";
+            echo "<p>Launch Date: " . $chat -> getLaunchDate() ->format('Y-m-d') . "</p>";
             echo "<p>Number Of Users in 2021: " . $chat -> getNumberOfUsers() . "</p>";
             echo "<p>Available For Android: " . $chat -> getAvailableForAndroid() . "</p>";
             echo "<p>Rating On Google Play: " . $chat -> getRatingOnGooglePlay() . "</p>";
