@@ -23,7 +23,7 @@
             $this -> ratingOnAppStore = $ratingOnAppStore;
         }
 
-        public function getId() : ?int {
+        public function getId() : int {
             return $this -> id;
         }
 
@@ -103,7 +103,7 @@
             $db->prepare('INSERT INTO adatok (name, launchDate, numberOfUsers, availableForAndroid, ratingOnGooglePlay, availableForiOS, ratingOnAppStore) 
                                     VALUES (:name, :launchDate, :numberOfUsers, :availableForAndroid, :ratingOnGooglePlay, :availableForiOS, :ratingOnAppStore)')
                 ->execute([':name' => $this -> name, 
-                            ':launchDate' => $this -> launchDate, 
+                            ':launchDate' => $this -> launchDate -> format('Y-m-d'), 
                             ':numberOfUsers' => $this -> numberOfUsers,
                             ':availableForAndroid' => $this -> availableForAndroid, 
                             ':ratingOnGooglePlay' => $this -> ratingOnGooglePlay,

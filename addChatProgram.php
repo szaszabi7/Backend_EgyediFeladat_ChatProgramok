@@ -3,19 +3,17 @@
 require_once 'db.php';
 require_once 'ChatProgram.php';
 
-$chatAdatok = ChatProgram::osszes();
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     
     $chatName = $_POST['name'] ?? "";
-    $chatLaunchDate = new DateTime($_POST['launchDate']);
+    $chatLaunchDate = $_POST['launchDate'];
     $chatNumberOfUsers = $_POST['numberOfUsers'] ?? 0;
     $chatAvailableForAndroid = $_POST['availableForAndroid'] ?? "";
     $chatRatingOnGooglePlay = $_POST['ratingOnGooglePlay'] ?? 0;
     $chatAvailableForiOS = $_POST['availableForiOS'] ?? "";
     $chatRatingOnAppStore = $_POST['ratingOnAppStore'] ?? 0;
 
-    $saveWeather = new ChatProgram($chatName, $chatLaunchDate, $chatNumberOfUsers, $chatAvailableForAndroid,
+    $saveWeather = new ChatProgram($chatName, new DateTime($chatLaunchDate), $chatNumberOfUsers, $chatAvailableForAndroid,
     $chatRatingOnGooglePlay, $chatAvailableForiOS, $chatRatingOnAppStore);
     $saveWeather -> chatAdd();
     header('Location: index.php');
